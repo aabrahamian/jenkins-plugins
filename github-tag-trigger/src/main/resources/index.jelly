@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+  Triggers a build when a tag is edited on GitHub.
+</div>
