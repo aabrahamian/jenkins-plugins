@@ -1,0 +1,8 @@
+<div>
+    <p>Listens for push events from GitHub, and triggers a new build when a tag is updated or created.</p>
+    <p>To use this trigger,</p>
+    <ol>
+        <li>Under "Git Repositories &gt; Advanced", use <code>+refs/tags/*:refs/remotes/origin/tags/*</code>.</li>
+        <li>Under "Branches to build &gt; Branch Specifier", use <code>${GIT_REF}</code>.</li>
+    </ol>
+</div>
