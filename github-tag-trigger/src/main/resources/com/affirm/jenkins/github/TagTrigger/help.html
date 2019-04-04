@@ -3,6 +3,6 @@
     <p>To use this trigger,</p>
     <ol>
         <li>Under "Git Repositories &gt; Advanced", use <code>+refs/tags/*:refs/remotes/origin/tags/*</code>.</li>
-        <li>Under "Branches to build &gt; Branch Specifier", use <code>${GIT_REF}</code>.</li>
+        <li>Under "Branches to build &gt; Branch Specifier", use either <code>${GIT_REF}</code> (for the full reference) or <code>${TAG_TO_USE}</code> (for just the tag name).</li>
     </ol>
 </div>

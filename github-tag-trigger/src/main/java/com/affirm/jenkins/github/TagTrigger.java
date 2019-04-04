@@ -49,7 +49,7 @@ public class TagTrigger extends Trigger<Job<?, ?>> {
 
         ArrayList<ParameterValue> values = getDefaultParameters();
         values.add(new StringParameterValue("GH_PUSHER", cause.getPusher()));
-        values.add(new StringParameterValue("GIT_TAG", cause.getTag()));
+        values.add(new StringParameterValue("TAG_TO_USE", cause.getTag()));
         values.add(new StringParameterValue("GIT_REF", cause.getRef()));
 
         ParameterizedJobMixIn pjob = asParameterizedJobMixIn(job);
@@ -95,7 +95,8 @@ public class TagTrigger extends Trigger<Job<?, ?>> {
         ParametersDefinitionProperty pdp = job.getProperty(ParametersDefinitionProperty.class);
         if (null != pdp) {
             for (ParameterDefinition pd : pdp.getParameterDefinitions()) {
-                if (pd.getName().equals("GIT_REF"))
+                // we don't need to add params that the trigger will be setting anyway
+                if (pd.getName().equals("GIT_REF") || pd.getName().equals("TAG_TO_USE") || pd.getName().equals("GH_PUSHER"))
                     continue;
                 values.add(pd.getDefaultParameterValue());
             }
